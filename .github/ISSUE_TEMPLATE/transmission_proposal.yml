@@ -1,0 +1,70 @@
+name: "💡 Transmission Proposal (RFC)"
+description: "Propose a new subsystem, architectural optimization, or experimental vector."
+title: "[PROPOSAL]: "
+labels: ["proposal::discussion", "vector::rfc"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### `SYS.TRANSMISSION_PROPOSAL // RFC`
+        *Architects of the unseen.* All proposals are evaluated against our primary tenets: **Zero Runtime Bloat**, **Surgical Fine-Grained Reactivity**, and **Strict Frame Budgets**.
+
+  - type: dropdown
+    id: vector_type
+    attributes:
+      label: "Proposal Vector"
+      description: "Category of the architectural enhancement."
+      options:
+        - "Core Reactive Architecture / Primitives"
+        - "Procedural Audio Synthesizer Enhancement"
+        - "WebGL / Raymarching Visual Subsystem"
+        - "Performance Optimization (Zero-Bloat / Sub-ms)"
+        - "Accessibility & WCAG 2.2 AA Compliance"
+        - "Developer Tooling / Hardware Infrastructure"
+        - "New Standalone Subsystem"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: "Problem Statement & Mission Objective"
+      description: "What architectural challenge or technical limitation does this proposal resolve?"
+      placeholder: "Explain the context and why this enhancement is necessary..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical_specification
+    attributes:
+      label: "Technical Implementation Specification"
+      description: "Detailed breakdown of the proposed architecture, components, and data flow."
+      placeholder: "Detail API signatures, reactive primitives, shader algorithms, or file structures..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: performance_impact
+    attributes:
+      label: "Performance & Frame Budget Assessment"
+      description: "How does this proposal respect memory boundaries, bundle size, and 60/120/144 FPS targets?"
+      placeholder: "Analyze bundle delta (kB), CPU/GPU overhead, and memory allocation profile..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternative Vectors Considered"
+      description: "What other approaches were evaluated, and why was this vector chosen?"
+      placeholder: "Describe discarded alternatives and trade-offs..."
+
+  - type: checkboxes
+    id: alignment
+    attributes:
+      label: "Doctrine Alignment"
+      options:
+        - label: "This proposal adheres to the Zero Bloat doctrine (no speculative abstractions)."
+          required: true
+        - label: "I am prepared to contribute surgical code or assist with architectural review."
+          required: false

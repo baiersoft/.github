@@ -1,0 +1,98 @@
+name: "⚠️ System Anomaly Report"
+description: "Report unexpected runtime behavior, shader glitches, audio dropouts, or layout drift."
+title: "[ANOMALY]: "
+labels: ["anomaly::unverified", "subsystem::triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### `SYS.ANOMALY_TELEMETRY // V2.0`
+        *Architects of the unseen.* Please provide surgical, reproducible diagnostics to isolate this anomaly.
+
+  - type: dropdown
+    id: subsystem
+    attributes:
+      label: "Affected Subsystem"
+      description: "Which engineering layer experienced anomalous telemetry?"
+      options:
+        - "WebGL 2.0 / Shader Raymarcher Engine"
+        - "Procedural Web Audio Synthesizer"
+        - "Fine-Grained Reactive Signals / Core State"
+        - "Tailwind CSS v4 / Obsidian Void Layout & Accessibility"
+        - "Video Composer / Hardware Acceleration"
+        - "CI/CD Deployment Relay / Infrastructure"
+        - "Unclassified Subsystem"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Anomaly Severity Tier"
+      description: "Classify the operational impact of this anomaly."
+      options:
+        - "COSMIC_DRIFT [Low // Cosmetic or minor visual artifact]"
+        - "SIGNAL_DEGRADATION [Medium // Subsystem operates with reduced fidelity]"
+        - "CRITICAL_INTERRUPT [High // Subsystem rendered non-operational]"
+        - "SINGULARITY_BREACH [Critical // Crash, memory leak, or security vulnerability]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Anomaly Telemetry"
+      description: "Detailed description of the observed anomaly."
+      placeholder: "Describe the unexpected behavior with technical precision..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Reproduction Vectors"
+      description: "Exact step-by-step coordinates to reproduce the anomaly."
+      placeholder: |
+        1. Initialize portal at coordinates...
+        2. Trigger audio ambience toggle...
+        3. Observe telemetry dropout...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_vs_observed
+    attributes:
+      label: "Expected vs Observed Behavior"
+      description: "Contrast the theoretical design expectation against the observed reality."
+      placeholder: |
+        EXPECTED: Frame budget maintained locked at 60 FPS.
+        OBSERVED: GPU frame dropped to 24 FPS with shader pipeline stall.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment & Hardware Telemetry"
+      description: "OS, Browser version, GPU model, and Display resolution/DPR."
+      placeholder: "e.g., Windows 11 // Chrome 132 // RTX 4090 // 3840x2160 @ 1.5x DPR"
+    validations:
+      required: true
+
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: "Console Diagnostics & Stack Trace"
+      description: "Raw browser console logs, WebGL debug warnings, or error dumps."
+      render: shell
+      placeholder: "Paste console error output here..."
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: "Architectural Verification"
+      options:
+        - label: "I have confirmed this report contains no private credentials or secret tokens."
+          required: true
+        - label: "I have checked existing anomaly reports to prevent vector duplication."
+          required: true

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "📡 Cryptographic Transmission Relay"
+    url: "mailto:transmission@baiersoft.com"
+    about: "Direct confidential communication vector with the core engineering team."
+  - name: "🛡️ Security Vulnerability Disclosure"
+    url: "https://github.com/baiersoft/.github/blob/main/SECURITY.md"
+    about: "Report critical security vulnerabilities or architectural exploits privately."
+  - name: "🌌 Live Obsidian Portal"
+    url: "https://baiersoft.com"
+    about: "Access the live portal and interactive WebGL/Web Audio environment."

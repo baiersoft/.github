@@ -1,0 +1,29 @@
+name: "Validate Organization Profile & Health Files"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  telemetry-check:
+    name: "Architectural Integrity Check"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+
+      - name: "Verify File Integrity"
+        run: |
+          echo "Verifying presence of critical organization health files..."
+          test -f profile/README.md || { echo "Missing profile/README.md"; exit 1; }
+          test -f SECURITY.md || { echo "Missing SECURITY.md"; exit 1; }
+          test -f CONTRIBUTING.md || { echo "Missing CONTRIBUTING.md"; exit 1; }
+          test -f CODE_OF_CONDUCT.md || { echo "Missing CODE_OF_CONDUCT.md"; exit 1; }
+          test -f .github/PULL_REQUEST_TEMPLATE.md || { echo "Missing PR template"; exit 1; }
+          test -f .github/ISSUE_TEMPLATE/config.yml || { echo "Missing issue config.yml"; exit 1; }
+          test -f .github/ISSUE_TEMPLATE/anomaly_report.yml || { echo "Missing anomaly_report.yml"; exit 1; }
+          test -f .github/ISSUE_TEMPLATE/transmission_proposal.yml || { echo "Missing transmission_proposal.yml"; exit 1; }
+          echo "All critical health files present. Status: NOMINAL."
